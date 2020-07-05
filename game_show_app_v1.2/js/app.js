@@ -15,11 +15,27 @@ phrases = [
   "Rise and shine" 
 ];
 
-//return a random phrase from an array 
+//hide the screen start overlay
+startGame.addEventListener('click', () => {
+    overlay.style.display = "none";
+});
+
+//random phrase 
 function getRandomPhraseAsArray(arr) {
-    const randomNumber = Math.floor( Math.random() * arr.length );
-    const getPhrase = arr[randomNumber].toString().toLowerCase();
-    for ( let i = 0; i < getPhrase.length; i++) {
-        
+    const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
+    return randomPhrase.split("");
+}
+
+//display phrase
+function displayPhrase (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const listItem = document.createElement("li");
+        listItem.textContent = arr[i];
+        parentOfPhraseList.appendChild(listItem);
+        if (arr[i] !== "") {
+            listItem.className = "letter";
+        } else {
+            listItem.className = "space";
+        }
     }
-};
+}
