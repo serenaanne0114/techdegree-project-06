@@ -57,6 +57,9 @@
 
 // //check win function
 
+//ignore the code above as it is just only brainstorming
+//code starts below
+
 const keyboard = document.querySelector('#qwerty');
 const letters = document.querySelectorAll('.letter');
 const misses = document.querySelector('.misses');
@@ -64,8 +67,7 @@ const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementByID("#overlay");
 const  phrase = document.querySelector('#phrase');
 const phraseUL = document.querySelector('#phrase ul');
-// let keyRowButtons = Array.from(document.querySelectorAll('.keyrow button'));
-// const hearts = Array.from(document.querySelectorAll('ol li'));
+const hearts = Array.from(document.querySelectorAll('ol li'));
 let missed = 0;
 
 //phrases
@@ -124,7 +126,9 @@ keyboard.addEventListener('click', event => {
         const match = checkLetter(event.target.textContent.toLowerCase());
         if (!match){
             missed++;
-            // code to change heart icon from liveHeart.png to lostHeart.png would go here
+            for ( let i = 0; i < missed; i++ ) {
+                hearts[i].children[0].src = `images/lostHeart.png`;
+            }
             misses.textContent = missed;
         }
          
