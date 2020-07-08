@@ -39,7 +39,7 @@ function addPhraseToDisplay (arr) {
 
     //check letter function
 const checkLetter = button => {
-    let match = null;
+    let matched = null;
     
     letters.forEach(letter =>{
         if (button === letter.textContent.toLowerCase()) {
