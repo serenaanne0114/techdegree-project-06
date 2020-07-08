@@ -44,7 +44,7 @@ const checkLetter = button => {
     letters.forEach(letter =>{
         if (button === letter.textContent.toLowerCase()) {
             letter.classList.add('show');
-            matched =true;
+            matched = true;
         }
     });
     return matched;
