@@ -55,7 +55,7 @@ startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
         overlay.hide();
     } else {
-        reStartGame();
+        resetGame();
     }
 });
 
@@ -94,7 +94,7 @@ keyboard.addEventListener('click', event => {
 });
 
 // Restart after the game is over
-function reStartGame() {
+function resetGame() {
     missed = 0;
     const keyButton = document.querySelectorAll('button');
     for (let i = 0; i <keyButton.length; i++) {
