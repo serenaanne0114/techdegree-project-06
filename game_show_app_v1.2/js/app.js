@@ -52,8 +52,11 @@ const checkLetter = button => {
 
 // event listener to start game button
 startGame. addEventListener('click', () => {
-    overlay.setAttribute('style', 'display:none');
-    resetGame();
+    if(startGame.textContent == 'Start Game') {
+        overlay.hide();
+    } else {
+        reStartGame();
+    }
 });
 
 //add event listener to the keyboard
@@ -89,6 +92,16 @@ keyboard.addEventListener('click', event => {
          }
     }
 });
+
+// Restart after the game is over
+function reStartGame() {
+    missed = 0;
+    const keyButton = document.querySelectorAll('button');
+    for (let i = 0; i <keyButton.length; i++) {
+        keyButton[i].className = '';
+        keyButton[i].disabled = 'false';
+    }
+}
 
 // please ignore the code below as I was only experimenting
 
