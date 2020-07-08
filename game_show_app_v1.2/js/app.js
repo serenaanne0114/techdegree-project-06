@@ -53,7 +53,7 @@ const checkLetter = button => {
 // event listener to start game button
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
-        overlay.hide();
+        overlay.setAttribute('style', 'display:none');
     } else {
         resetGame();
     }
