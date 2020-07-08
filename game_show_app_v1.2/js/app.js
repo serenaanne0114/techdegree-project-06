@@ -1,65 +1,3 @@
-// const qwerty = document.getElementByID("qwerty");
-// const phrase = document.getElementById("phrase");
-// const startGame = document.querySelector(".btn__reset");
-// const overlay = document.getElementByID("overlay");
-// const parentOfPhraseList = document.querySelector("ul");
-// const letters = document.getElementsByClassName("letter");
-// let title = document.querySelector(".title");
-// let missed = 0;
-
-// //phrases
-// phrases = [
-//   "To move mountains",
-//   "The light shines in darkness", 
-//   "Go the extra mile",
-//   "Fight the good fight",
-//   "Rise and shine" 
-// ];
-
-// //hide the screen start overlay
-// startGame.addEventListener('click', () => {
-//     overlay.style.display = "none";
-// });
-
-// //random phrase 
-// function getRandomPhraseAsArray(arr) {
-//     const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
-//     return randomPhrase.split("");
-// }
-
-// //display phrase
-// function addPhraseToDisplay (arr) {
-//     for (let i = 0; i < arr.length; i++) {
-//         const listItem = document.createElement("li");
-//         listItem.textContent = arr[i];
-//         parentOfPhraseList.appendChild(listItem);
-//         if (arr[i] !== "") {
-//             listItem.className = "letter";
-//         } else {
-//             listItem.className = "space";
-//         }
-//     }
-// }
-
-// //check letter function
-// function checkLetter (letter) {
-//     let match = null;
-//     for ( let i = 0; i < letters.length; i++) {
-//         if(guess.textContent ==letters[i].textContent) {
-//             letters[i].classList.add("show");
-//             match = true;
-//         }
-//     }
-//     return match;
-// }
-
-// //event listener to keyboard
-
-// //check win function
-
-//ignore the code above as it is just only brainstorming
-//code starts below
-
 const keyboard = document.querySelector('#qwerty');
 const letters = document.querySelectorAll('.letter');
 const misses = document.querySelector('.misses');
@@ -132,6 +70,7 @@ keyboard.addEventListener('click', event => {
             misses.textContent = missed;
         }
          
+ //check win function
         function checkWin() {
              let showItems = document.querySelectorAll('.show');
              const title = document.querySelector('.title');
@@ -150,3 +89,64 @@ keyboard.addEventListener('click', event => {
          }
     }
 });
+
+// please ignore the code below as I was only experimenting
+
+// const qwerty = document.getElementByID("qwerty");
+// const phrase = document.getElementById("phrase");
+// const startGame = document.querySelector(".btn__reset");
+// const overlay = document.getElementByID("overlay");
+// const parentOfPhraseList = document.querySelector("ul");
+// const letters = document.getElementsByClassName("letter");
+// let title = document.querySelector(".title");
+// let missed = 0;
+
+// //phrases
+// phrases = [
+//   "To move mountains",
+//   "The light shines in darkness", 
+//   "Go the extra mile",
+//   "Fight the good fight",
+//   "Rise and shine" 
+// ];
+
+// //hide the screen start overlay
+// startGame.addEventListener('click', () => {
+//     overlay.style.display = "none";
+// });
+
+// //random phrase 
+// function getRandomPhraseAsArray(arr) {
+//     const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
+//     return randomPhrase.split("");
+// }
+
+// //display phrase
+// function addPhraseToDisplay (arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         const listItem = document.createElement("li");
+//         listItem.textContent = arr[i];
+//         parentOfPhraseList.appendChild(listItem);
+//         if (arr[i] !== "") {
+//             listItem.className = "letter";
+//         } else {
+//             listItem.className = "space";
+//         }
+//     }
+// }
+
+// //check letter function
+// function checkLetter (letter) {
+//     let match = null;
+//     for ( let i = 0; i < letters.length; i++) {
+//         if(guess.textContent ==letters[i].textContent) {
+//             letters[i].classList.add("show");
+//             match = true;
+//         }
+//     }
+//     return match;
+// }
+
+// //event listener to keyboard
+
+// //check win function
