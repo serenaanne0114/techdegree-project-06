@@ -96,6 +96,12 @@ const checkLetter = button => {
     return matched;
 };
 
+// event listener to start game button
+startGame. addEventListener('click', () => {
+    overlay.setAttribute('style', 'display:none');
+    resetGame();
+});
+
 //add event listener to the keyboard
 keyboard.addEventListener('click', event => {
     if (event.target.tagName === "BUTTON") {
