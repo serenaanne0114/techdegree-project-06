@@ -83,7 +83,7 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase.split("");
     }
 
-display phrase
+//display phrase
 function addPhraseToDisplay (arr) {
     for (let i = 0; i < arr.length; i++) {
         const listItem = document.createElement("li");
