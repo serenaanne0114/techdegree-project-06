@@ -1,8 +1,8 @@
 const keyboard = document.querySelector('#qwerty');
 const letters = document.querySelectorAll('.letter');
 const misses = document.querySelector('.misses');
-const startGame = document.querySelector(".btn__reset");
-const overlay = document.getElementByID("overlay");
+const startGame = document.querySelector('.btn__reset');
+const overlay = document.getElementByID('overlay');
 const  phrase = document.querySelector('#phrase');
 const phraseUL = document.querySelector('#phrase ul');
 const hearts = Array.from(document.querySelectorAll('ol li'));
