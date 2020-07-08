@@ -83,6 +83,20 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase.split("");
     }
 
+display phrase
+function addPhraseToDisplay (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const listItem = document.createElement("li");
+        listItem.textContent = arr[i];
+        parentOfPhraseList.appendChild(listItem);
+        if (arr[i] !== "") {
+            listItem.className = "letter";
+        } else {
+            listItem.className = "space";
+        }
+    }
+}    
+
     //check letter function
 const checkLetter = button => {
     let match = null;
