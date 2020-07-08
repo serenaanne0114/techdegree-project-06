@@ -1,11 +1,11 @@
-const keyboard = document.querySelector('#qwerty');
-const letters = document.querySelectorAll('.letter');
-const misses = document.querySelector('.misses');
-const startGame = document.querySelector('.btn__reset');
-const overlay = document.querySelector('#overlay');
-const  phrase = document.querySelector('#phrase');
-const phraseUL = document.querySelector('#phrase ul');
-const hearts = Array.from(document.querySelectorAll('ol li'));
+const keyboard = document.querySelector("#qwerty");
+const letters = document.querySelectorAll(".letter");
+const misses = document.querySelector(".misses");
+const startGame = document.querySelector(".btn__reset");
+const overlay = document.getElementById("overlay");
+const  phrase = document.querySelector("#phrase");
+const phraseUL = document.querySelector("#phrase ul");
+const hearts = Array.from(document.querySelectorAll("ol li"));
 let missed = 0;
 
 //phrases
