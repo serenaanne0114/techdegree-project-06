@@ -16,27 +16,30 @@ let missed = 0;
 ];
 
 //function to get random phrase
-function getRandomPhraseAsArray(arr) {
-    const randomPhrase = phrases[Math.floor( Math.random() * phrases.length )];
-    const word = randomPhrase.split('');
-    return word;
-    }
-    
-    const randomPhrase = getRandomPhraseAsArray(arr);
-
-//display phrase
-function addPhraseToDisplay (arr) {
+const getRandomPhraseAsArray = arr => {
+    let randomPhrase = Math.floor( Math.random() * phrases.length );
     for (let i = 0; i < arr.length; i++) {
-        const listItem = document.createElement("li");
-        listItem.appendChild(document.createTextNode(getRandomPhraseAsArray[i]));
-        if (randomPhrase[i]) {
-            listItem.setAttribute('class', 'letter');
-        }; 
-        const phraseUL = document.querySelector("#phrase ul");
-        phraseUL.appendChild('listItem');
-    };
+        return arr[randomPhrase];
+    }
 };
 
+const randomLetter = getRandomPhraseAsArray(phrases).split('');
+
+//display phrase
+function addPhraseToDisplay(arr) {
+    for ( let i = 0; i < arr.length; i++) {
+        const letter = arr[i];
+        const li = document.createElement('li');
+        li.textContent = letter;
+
+        if (letter !== " ") {
+            li.className = 'letter';
+        } else {
+            li.className = 'space';
+        }
+        ul.appendChild('li');
+    }
+}
     //check letter function
 const checkLetter = button => {
     let matched = null;
