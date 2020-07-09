@@ -21,9 +21,12 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase.split("");
     }
 
+getRandomPhraseAsArray(phrases);
+
 //display phrase
 function addPhraseToDisplay(arr) {
-    for ( let i = 0; i < arr.length; i++) {
+    const phraseUL = document.querySelector('#phrase ul');
+    for ( let i = 0; i < phraseUL.length; i++) {
         const letter = arr[i];
         const li = document.createElement('li');
         li.textContent = letter;
@@ -32,6 +35,7 @@ function addPhraseToDisplay(arr) {
             li.className = 'letter';
         } else {
             li.className = 'space';
+            phraseUL.appendChild(li);
         }
     }
 }
@@ -52,10 +56,11 @@ const checkLetter = button => {
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
         overlay.setAttribute('style', 'display:none');
+        addPhraseToDisplay(getRandomPhraseAsArray(phrases));
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
-    addPhraseToDisplay(arr);
+
 });
 
 //add event listener to the keyboard
@@ -69,7 +74,8 @@ keyboard.addEventListener('click', event => {
             for ( let i = 0; i < hearts; i++ ) {
                 hearts[i].children[0].src = `images/lostHeart.png`;
             }
-           hearts.textContent = missed; 
+           hearts.textContent = missed;
+           checkWin(); 
         }
          
  //check win function
@@ -100,6 +106,7 @@ function resetGame() {
         keyButton[i].className = '';
         keyButton[i].disabled = 'false';
     }
+    getRandomPhraseAsArray(phrases);
 }
 
 // please ignore the code below as I was only experimenting
