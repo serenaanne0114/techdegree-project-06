@@ -69,11 +69,11 @@ keyboard.addEventListener('click', event => {
         event.target.disabled = true;
         const match = checkLetter(event.target.textContent.toLowerCase());
         if (!match){
-            missed++;
-            for ( let i = 0; i < missed; i++ ) {
+            hearts++;
+            for ( let i = 0; i < hearts; i++ ) {
                 hearts[i].children[0].src = `images/lostHeart.png`;
             }
-            misses.textContent = missed;
+           hearts.textContent = missed; 
         }
          
  //check win function
