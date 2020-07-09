@@ -17,7 +17,7 @@ let missed = 0;
 
 //function to get random phrase
 function getRandomPhraseAsArray(arr) {
-    const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
+    const randomPhrase = Math.floor( Math.random() * arr.length );
     return randomPhrase.split("");
     }
 
@@ -39,7 +39,11 @@ function addPhraseToDisplay(arr) {
         }
     }
 }
-    //check letter function
+
+const phraseArray = getRandomPhraseAsArray(phrases);
+addPhraseToDisplay(phraseArray);
+  
+//check letter function
 const checkLetter = button => {
     let matched = null;
     
@@ -56,7 +60,7 @@ const checkLetter = button => {
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
         overlay.setAttribute('style', 'display:none');
-        addPhraseToDisplay(getRandomPhraseAsArray(phrases));
+        addPhraseToDisplay(phraseArray);
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
@@ -74,8 +78,7 @@ keyboard.addEventListener('click', event => {
             for ( let i = 0; i < hearts; i++ ) {
                 hearts[i].children[0].src = `images/lostHeart.png`;
             }
-           hearts.textContent = missed;
-           checkWin(); 
+           hearts.textContent = missed; 
         }
          
  //check win function
