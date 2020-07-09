@@ -22,6 +22,7 @@ function getRandomPhraseAsArray(arr) {
     const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
     return randomPhrase.split("");
     }
+    
 
 //display phrase
 function addPhraseToDisplay (arr) {
