@@ -55,11 +55,12 @@ const checkLetter = button => {
 // event listener to start game button
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
+        addPhraseToDisplay();
         overlay.setAttribute('style', 'display:none');
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
-    addPhraseToDisplay();
+
 });
 
 //add event listener to the keyboard
