@@ -37,7 +37,6 @@ function addPhraseToDisplay(arr) {
         } else {
             li.className = 'space';
         }
-        ul.appendChild('li');
     }
 }
     //check letter function
@@ -60,6 +59,7 @@ startGame. addEventListener('click', () => {
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
+    addPhraseToDisplay();
 });
 
 //add event listener to the keyboard
