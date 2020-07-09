@@ -16,14 +16,10 @@ let missed = 0;
 ];
 
 //function to get random phrase
-const getRandomPhraseAsArray = arr => {
-    let randomPhrase = Math.floor( Math.random() * phrases.length );
-    for (let i = 0; i < arr.length; i++) {
-        return arr[randomPhrase];
+function getRandomPhraseAsArray(arr) {
+    const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
+    return randomPhrase.split("");
     }
-};
-
-const randomLetter = getRandomPhraseAsArray(phrases).split('');
 
 //display phrase
 function addPhraseToDisplay(arr) {
@@ -55,12 +51,11 @@ const checkLetter = button => {
 // event listener to start game button
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
-        addPhraseToDisplay();
         overlay.setAttribute('style', 'display:none');
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
-
+    addPhraseToDisplay(arr);
 });
 
 //add event listener to the keyboard
