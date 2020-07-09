@@ -3,13 +3,11 @@ const letters = document.querySelectorAll(".letter");
 const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
-const  phrase = document.querySelector("#phrase");
-const phraseUL = document.querySelector("#phrase ul");
 const hearts = Array.from(document.querySelectorAll("ol li"));
 let missed = 0;
 
 //phrases
-phrases = [
+ const phrases = [
   "To move mountains",
   "The light shines in darkness", 
   "Go the extra mile",
@@ -19,24 +17,25 @@ phrases = [
 
 //function to get random phrase
 function getRandomPhraseAsArray(arr) {
-    const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
-    return randomPhrase.split("");
+    const randomPhrase = phrases[Math.floor( Math.random() * phrases.length )];
+    const word = randomPhrase.split('');
+    return word;
     }
     
+    const randomPhrase = getRandomPhraseAsArray(arr);
 
 //display phrase
 function addPhraseToDisplay (arr) {
     for (let i = 0; i < arr.length; i++) {
         const listItem = document.createElement("li");
-        listItem.textContent = arr[i];
-        parentOfPhraseList.appendChild(listItem);
-        if (arr[i] !== "") {
-            listItem.className = "letter";
-        } else {
-            listItem.className = "space";
-        }
-    }
-}    
+        listItem.appendChild(document.createTextNode(getRandomPhraseAsArray[i]));
+        if (randomPhrase[i]) {
+            listItem.setAttribute('class', 'letter');
+        }; 
+        const phraseUL = document.querySelector("#phrase ul");
+        phraseUL.appendChild('listItem');
+    };
+};
 
     //check letter function
 const checkLetter = button => {
