@@ -18,10 +18,11 @@ let missed = 0;
 //function to get random phrase
 function getRandomPhraseAsArray(arr) {
     const randomPhrase = Math.floor( Math.random() * arr.length );
-    return randomPhrase.split("");
+    const word = randomPhrase.split("");
+    return randomPhrase;
     }
 
-getRandomPhraseAsArray(phrases);
+ const RandomPhrase = getRandomPhraseAsArray(phrases);
 
 //display phrase
 function addPhraseToDisplay(arr) {
