@@ -22,7 +22,7 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase;
     }
 
- const RandomPhrase = getRandomPhraseAsArray(phrases);
+ const phraseRandom = getRandomPhraseAsArray(phrases);
 
 //display phrase
 function addPhraseToDisplay(arr) {
