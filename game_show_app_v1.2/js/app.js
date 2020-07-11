@@ -17,7 +17,7 @@ let missed = 0;
 
 //function to get random phrase
 function getRandomPhraseAsArray(arr) {
-    const randomPhrase = Math.floor( Math.random() * arr.length );
+    const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
     const word = randomPhrase.split("");
     return randomPhrase;
     }
@@ -28,16 +28,17 @@ function getRandomPhraseAsArray(arr) {
 function addPhraseToDisplay(arr) {
     const phraseUL = document.querySelector('#phrase ul');
     for ( let i = 0; i < phraseUL.length; i++) {
-        const letter = arr[i];
         const li = document.createElement('li');
+        const letter = arr[i];
         li.textContent = letter;
 
         if (letter !== " ") {
             li.className = 'letter';
         } else {
             li.className = 'space';
-            phraseUL.appendChild(li);
+            
         }
+        phraseUL.appendChild(li);
     }
 }
 
@@ -81,7 +82,11 @@ keyboard.addEventListener('click', event => {
             }
            hearts.textContent = missed; 
         }
-         
+    }
+    checkWin();
+});
+        
+    
  //check win function
         function checkWin() {
              let showItems = document.querySelectorAll('.show');
@@ -99,8 +104,8 @@ keyboard.addEventListener('click', event => {
                 startGame.textContent = "Try Again"
              }
          }
-    }
-});
+    
+
 
 // Restart after the game is over
 function resetGame() {
