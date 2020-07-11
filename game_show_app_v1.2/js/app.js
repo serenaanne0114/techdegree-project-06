@@ -87,7 +87,7 @@ keyboard.addEventListener('click', event => {
                 tries.appendChild(heartLi);
             }
          }
-         hearts.textContent = missed;
+         missed = 0;
     }
     checkWin();
 });
