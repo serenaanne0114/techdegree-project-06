@@ -22,7 +22,6 @@ function getRandomPhraseAsArray(arr) {
     return randomPhrase;
     }
 
- const phraseRandom = getRandomPhraseAsArray(phrases);
 
 //display phrase
 function addPhraseToDisplay(arr) {
@@ -42,8 +41,8 @@ function addPhraseToDisplay(arr) {
     }
 }
 
-const phraseArray = getRandomPhraseAsArray(phrases);
-addPhraseToDisplay(phraseArray);
+
+
   
 //check letter function
 const checkLetter = button => {
@@ -109,13 +108,19 @@ keyboard.addEventListener('click', event => {
 
 // Restart after the game is over
 function resetGame() {
-    missed = 0;
+    phraseUL.innerHTML = '';
+
+    const phraseArray = getRandomPhraseAsArray(phrases);
+    console.log(phraseArray);
+
+    addPhraseToDisplay(phraseArray);
+
     const keyButton = document.querySelectorAll('button');
     for (let i = 0; i <keyButton.length; i++) {
         keyButton[i].className = '';
         keyButton[i].disabled = 'false';
     }
-    getRandomPhraseAsArray(phrases);
+   missed = 0; 
 }
 
 // please ignore the code below as I was only experimenting
