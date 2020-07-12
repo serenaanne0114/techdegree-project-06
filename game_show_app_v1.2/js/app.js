@@ -18,7 +18,7 @@ let missed = 0;
 function getRandomPhraseAsArray(arr) {
     const randomPhrase = arr[Math.floor( Math.random() * arr.length )];
     const word = randomPhrase.split("");
-    return randomPhrase;
+    return word;
     }
 
 
@@ -40,9 +40,6 @@ function addPhraseToDisplay(arr) {
     }
 }
 
-
-
-  
 //check letter function
 const checkLetter = button => {
     let matched = null;
@@ -85,29 +82,29 @@ keyboard.addEventListener('click', event => {
                 heartLi.classList.add('tries');
                 heartLi.appendChild(heartIMG);
                 tries.appendChild(heartLi);
+
+                missed = 0;
             }
          }
-         missed = 0;
+         checkWin();
     }
-    checkWin();
 });
         
-    
- //check win function
-        function checkWin() {
-             let showItems = document.querySelectorAll('.show');
-             const title = document.querySelector('.title');
-             if ( letters.length === showItems.length) {
-                 overlay.className = "win";
-                 overlay.style.display = "flex";
-                 title.innerHTML = "You Win";
-                 startGame.textContent ="Try Again"
+//check win function
+function checkWin() {
+    let showItems = document.querySelectorAll('.show');
+    const title = document.querySelector('.title');
+         if ( letters.length === showItems.length) {
+             overlay.className = "win";
+             overlay.style.display = "flex";
+            title.innerHTML = "You Win";
+            startGame.textContent ="Try Again"
 
-             } else if (missed > 4) {
-                overlay.className = "lose";
-                title.textContent = "You Lose"
-                overlay.style.display = "flex";
-                startGame.textContent = "Try Again"
+        } else if (missed > 4) {
+            overlay.className = "lose";
+            title.textContent = "You Lose"
+             overlay.style.display = "flex";
+            startGame.textContent = "Try Again"
              }
          }
     
