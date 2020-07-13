@@ -116,8 +116,8 @@ function checkWin() {
 
 // Restart after the game is over
 function resetGame() {
+    const phraseUL = document.querySelector('#phrase ul');
     phraseUL.innerHTML = '';
-
     const keyButton = document.querySelectorAll('button');
     for (let i = 0; i <keyButton.length; i++) {
         keyButton[i].className = '';
