@@ -73,12 +73,12 @@ keyboard.addEventListener('click', event => {
     if (event.target.tagName === "Button") {
         const button = event.target;
         const foundLetter = checkLetter(button);
-        let tries = hearts.firstElementChild;
+        let giveAShot = hearts.firstElementChild;
 
         if (foundletter == null) {
             console.log("letter not found");
             button.classList.add('wrongLetter');
-            hearts.removeChild(tries);
+            hearts.removeChild(giveAShot);
             missed += 1;
         } else {
             console.log("letter found");
@@ -87,22 +87,16 @@ keyboard.addEventListener('click', event => {
         button.disabled = true;
     }
     checkWin();
-});
     // if (event.target.tagName === "BUTTON") {
     //     event.target.className = 'chosen';
     //     event.target.disabled = true;
     //     const match = checkLetter(event.target.textContent.toLowerCase());
     //     let hearts = document.querySelectorAll('#scoreboard ol li');
     //     if (!match){
-    //         console.log("Letter not found");
-    //         chosen.classList.add()
-    //      } else{
-             
-             
-    //      }
-    //      checkWin();
+            
+    //      } 
     // }
-
+});
         
 //check win function
 function checkWin() {
@@ -137,8 +131,8 @@ function resetGame() {
    
     let heartsRow = document.querySelectorAll('#scoreboard ol li');
     const missingHearts = 5 - heartsRow.length;
-    if(missinghHearts > 0) {
-    for ( let i = 0; i < match; i++) {
+    if(missingHearts > 0) {
+    for ( let i = 0; i < missingHearts; i++) {
                 let heartLi = document.createElement('li');
                 let heartIMG = document.createElement('img');
                 heartIMG.src = "images.liveHeart.png";
@@ -149,10 +143,11 @@ function resetGame() {
 
                 
             } 
-}
-   missed = 0; 
-}
 
+   missed = 0; 
+    }
+
+}
 // please ignore the code below as I was only experimenting
 
 // const qwerty = document.getElementByID("qwerty");
