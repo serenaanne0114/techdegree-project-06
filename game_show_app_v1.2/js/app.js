@@ -71,31 +71,18 @@ startGame. addEventListener('click', () => {
 //add event listener to the keyboard
 keyboard.addEventListener('click', event => {
     if (event.target.tagName === "Button") {
-        const button = event.target;
-        const foundLetter = checkLetter(button);
-        let giveAShot = hearts.firstElementChild;
-
-        if (foundletter == null) {
-            console.log("letter not found");
-            button.classList.add('wrongLetter');
-            hearts.removeChild(giveAShot);
-            missed += 1;
-        } else {
-            console.log("letter found");
-            button.classList.add('chosen');
-        }
-        button.disabled = true;
+        event.target.className = 'chosen';
+        event.target.disabled = true;
+        const match = checkLetter(event.target.textContent.toLowerCase());
+        if (!match){
+          console.log("Sorry, it's not a match");
+        
+         } else {
+            console.log("Congrats, it's a match!")
+         }
+         checkWin();
     }
-    checkWin();
-    // if (event.target.tagName === "BUTTON") {
-    //     event.target.className = 'chosen';
-    //     event.target.disabled = true;
-    //     const match = checkLetter(event.target.textContent.toLowerCase());
-    //     let hearts = document.querySelectorAll('#scoreboard ol li');
-    //     if (!match){
-            
-    //      } 
-    // }
+
 });
         
 //check win function
@@ -141,13 +128,9 @@ function resetGame() {
                 heartLi.appendChild(heartIMG);
                 tries.appendChild(heartLi);
 
-                
+                }    
             } 
-
-   missed = 0; 
-    }
-
-}
+        }
 // please ignore the code below as I was only experimenting
 
 // const qwerty = document.getElementByID("qwerty");
