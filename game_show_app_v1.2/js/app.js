@@ -27,10 +27,9 @@ function addPhraseToDisplay(arr) {
     const phraseUL = document.querySelector('#phrase ul');
     for ( let i = 0; i < phraseUL.length; i++) {
         const li = document.createElement('li');
-        const letter = arr[i];
-        li.textContent = letter;
+        li.textContent = arr[i];
 
-        if (letter !== " ") {
+        if (arr[i] !== " ") {
             li.className = 'letter';
         } else {
             li.className = 'space';
