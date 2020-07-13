@@ -61,7 +61,6 @@ const checkLetter = button => {
 startGame. addEventListener('click', () => {
     if(startGame.textContent == 'Start Game') {
         overlay.setAttribute('style', 'display:none');
-        addPhraseToDisplay(phraseArray);
     } else if (startGame.textContent == 'Try Again') {
         resetGame();
     }
