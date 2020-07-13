@@ -39,9 +39,10 @@ function addPhraseToDisplay(arr) {
         }
         phraseUL.appendChild(li);
     }
-}
 
-const addPhraseToDisplay = addPhraseToDisplay(phraseArray);
+    }
+    
+    addPhraseToDisplay(phraseArray);
 
 //check letter function
 const checkLetter = button => {
