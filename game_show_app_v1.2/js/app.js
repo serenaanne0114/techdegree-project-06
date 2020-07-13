@@ -20,6 +20,8 @@ function getRandomPhraseAsArray(arr) {
     const word = randomPhrase.split("");
     return word;
     }
+    const phraseArray = getRandomPhraseAsArray(phrases);
+    console.log(phraseArray);
 
 
 //display phrase
@@ -112,11 +114,6 @@ function checkWin() {
 // Restart after the game is over
 function resetGame() {
     phraseUL.innerHTML = '';
-
-    const phraseArray = getRandomPhraseAsArray(phrases);
-    console.log(phraseArray);
-
-    addPhraseToDisplay(phraseArray);
 
     const keyButton = document.querySelectorAll('button');
     for (let i = 0; i <keyButton.length; i++) {
