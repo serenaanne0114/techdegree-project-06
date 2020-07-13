@@ -2,6 +2,7 @@ const keyboard = document.querySelector("#qwerty");
 const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
+ let hearts = document.querySelectorAll('#scoreboard ol');
 let missed = 0;
 
 //phrases
@@ -69,31 +70,39 @@ startGame. addEventListener('click', () => {
 
 //add event listener to the keyboard
 keyboard.addEventListener('click', event => {
-    if (event.target.tagName === "BUTTON") {
-        event.target.className = 'chosen';
-        event.target.disabled = true;
-        const match = checkLetter(event.target.textContent.toLowerCase());
-        let hearts = document.querySelectorAll('#scoreboard ol li');
-        if (!match){
-            hearts++;
-            for ( let i = 0; i < match; i++) {
-                let heartLi = document.createElement('li');
-                let heartIMG = document.createElement('img');
-                heartIMG.src = "images.liveHeart.png";
+    if (event.target.tagName === "Button") {
+        const button = event.target;
+        const foundLetter = checkLetter(button);
+        let tries = hearts.firstElementChild;
 
-                heartLi.classList.add('tries');
-                heartLi.appendChild(heartIMG);
-                tries.appendChild(heartLi);
-
-                missed = 0;
-            } 
-         } else {
-             event.target.disabled.className = 'lose';
-             hearts.lastElementChild.remove();
-         }
-         checkWin();
+        if (foundletter == null) {
+            console.log("letter not found");
+            button.classList.add('wrongLetter');
+            hearts.removeChild(tries);
+            missed += 1;
+        } else {
+            console.log("letter found");
+            button.classList.add('chosen');
+        }
+        button.disabled = true;
     }
+    checkWin();
 });
+    // if (event.target.tagName === "BUTTON") {
+    //     event.target.className = 'chosen';
+    //     event.target.disabled = true;
+    //     const match = checkLetter(event.target.textContent.toLowerCase());
+    //     let hearts = document.querySelectorAll('#scoreboard ol li');
+    //     if (!match){
+    //         console.log("Letter not found");
+    //         chosen.classList.add()
+    //      } else{
+             
+             
+    //      }
+    //      checkWin();
+    // }
+
         
 //check win function
 function checkWin() {
@@ -125,6 +134,22 @@ function resetGame() {
         keyButton[i].className = '';
         keyButton[i].disabled = 'false';
     }
+   
+    let heartsRow = document.querySelectorAll('#scoreboard ol li');
+    const missingHearts = 5 - heartsRow.length;
+    if(missinghHearts > 0) {
+    for ( let i = 0; i < match; i++) {
+                let heartLi = document.createElement('li');
+                let heartIMG = document.createElement('img');
+                heartIMG.src = "images.liveHeart.png";
+
+                heartLi.classList.add('tries');
+                heartLi.appendChild(heartIMG);
+                tries.appendChild(heartLi);
+
+                
+            } 
+}
    missed = 0; 
 }
 
