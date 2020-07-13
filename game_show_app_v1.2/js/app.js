@@ -47,7 +47,7 @@ function addPhraseToDisplay(arr) {
 //check letter function
 const checkLetter = button => {
     let matched = null;
-    
+    const letters = document.querySelectorAll('.letter');
     letters.forEach(letter =>{
         if (button === letter.textContent.toLowerCase()) {
             letter.classList.add('show');
@@ -96,7 +96,7 @@ keyboard.addEventListener('click', event => {
 //check win function
 function checkWin() {
     let showItems = document.querySelectorAll('.show');
-    const letters = document.querySelectorAll('.leter');
+    const letters = document.querySelectorAll('.letter');
     let title = document.querySelectorAll('.title');
          if ( showItems.length === letters.length) {
              overlay.className = "win";
