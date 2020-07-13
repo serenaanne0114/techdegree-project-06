@@ -75,15 +75,13 @@ keyboard.addEventListener('click', event => {
         event.target.disabled = true;
         const match = checkLetter(event.target.textContent.toLowerCase());
         if (!match){
-          console.log("Sorry, it's not a match");
-        
+          console.log("Sorry, it's not a match"); 
+        }
          } else {
-            console.log("Congrats, it's a match!")
+            console.log("Congrats, it's a match!");
          }
          checkWin();
-    }
-
-});
+    });
         
 //check win function
 function checkWin() {
@@ -115,7 +113,7 @@ function resetGame() {
         keyButton[i].className = '';
         keyButton[i].disabled = 'false';
     }
-   
+
     let heartsRow = document.querySelectorAll('#scoreboard ol li');
     const missingHearts = 5 - heartsRow.length;
     if(missingHearts > 0) {
