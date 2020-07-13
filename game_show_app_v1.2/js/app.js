@@ -87,7 +87,10 @@ keyboard.addEventListener('click', event => {
                 tries.appendChild(heartLi);
 
                 missed = 0;
-            }
+            } 
+         } else {
+             event.target.disabled.className = 'lose';
+             hearts.lastElementChild.remove();
          }
          checkWin();
     }
