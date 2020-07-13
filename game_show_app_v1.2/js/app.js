@@ -1,9 +1,7 @@
 const keyboard = document.querySelector("#qwerty");
-const letters = document.querySelectorAll(".letter");
 const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
-const hearts = document.querySelector('#scoreboard ol li');
 let missed = 0;
 
 //phrases
@@ -21,14 +19,15 @@ function getRandomPhraseAsArray(arr) {
     const word = randomPhrase.split("");
     return word;
     }
-    const phraseArray = getRandomPhraseAsArray(phrases);
-    console.log(phraseArray);
+     const phraseArray = getRandomPhraseAsArray(phrases);
+     console.log(phraseArray);
+
 
 
 //display phrase
 function addPhraseToDisplay(arr) {
     const phraseUL = document.querySelector('#phrase ul');
-    for ( let i = 0; i < phraseUL.length; i++) {
+    for ( let i = 0; i < arr.length; i++) {
         const li = document.createElement('li');
         li.textContent = arr[i];
 
@@ -41,6 +40,8 @@ function addPhraseToDisplay(arr) {
         phraseUL.appendChild(li);
     }
 }
+
+const addPhraseToDisplay = addPhraseToDisplay(phraseArray);
 
 //check letter function
 const checkLetter = button => {
@@ -72,6 +73,7 @@ keyboard.addEventListener('click', event => {
         event.target.className = 'chosen';
         event.target.disabled = true;
         const match = checkLetter(event.target.textContent.toLowerCase());
+        let hearts = document.querySelectorAll('#scoreboard ol li');
         if (!match){
             hearts++;
             for ( let i = 0; i < match; i++) {
@@ -93,8 +95,9 @@ keyboard.addEventListener('click', event => {
 //check win function
 function checkWin() {
     let showItems = document.querySelectorAll('.show');
-    const title = document.querySelector('.title');
-         if ( letters.length === showItems.length) {
+    const letters = document.querySelectorAll('.leter');
+    let title = document.querySelectorAll('.title');
+         if ( showItems.length === letters.length) {
              overlay.className = "win";
              overlay.style.display = "flex";
             title.innerHTML = "You Win";
