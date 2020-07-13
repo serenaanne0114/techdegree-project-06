@@ -3,6 +3,7 @@ const letters = document.querySelectorAll(".letter");
 const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
+const hearts = document.querySelector('#scoreboard ol li');
 let missed = 0;
 
 //phrases
@@ -67,15 +68,13 @@ startGame. addEventListener('click', () => {
 
 //add event listener to the keyboard
 keyboard.addEventListener('click', event => {
-    const hearts = document.querySelectorALL('#scoreboard ol li');
-    const missingHearts = 5 - hearts.length;
     if (event.target.tagName === "BUTTON") {
         event.target.className = 'chosen';
         event.target.disabled = true;
         const match = checkLetter(event.target.textContent.toLowerCase());
         if (!match){
             hearts++;
-            for ( let i = 0; i < missingHearts; i++) {
+            for ( let i = 0; i < match; i++) {
                 let heartLi = document.createElement('li');
                 let heartIMG = document.createElement('img');
                 heartIMG.src = "images.liveHeart.png";
