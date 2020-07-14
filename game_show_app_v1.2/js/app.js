@@ -3,6 +3,7 @@ const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
 let hearts = document.querySelectorAll('#scoreboard img');
+const phraseUL = document.querySelector('#phrase ul');
 let missed = 0;
 
 //phrases
@@ -27,7 +28,6 @@ function getRandomPhraseAsArray(arr) {
 
 //display phrase
 function addPhraseToDisplay(arr) {
-    const phraseUL = document.querySelector('#phrase ul');
     for ( let i = 0; i < arr.length; i++) {
         const li = document.createElement('li');
         li.textContent = arr[i];
@@ -86,26 +86,26 @@ keyboard.addEventListener('click', event => {
 function checkWin() {
     let showItems = document.querySelectorAll('.show');
     const letters = document.querySelectorAll('.letter');
-    let title = document.querySelectorAll('.title');
-         if ( showItems.length === letters.length) {
+    let title = document.querySelector('.title');
+         if (showItems.length === letters.length) {
              overlay.className = "win";
              overlay.style.display = "flex";
-            title.innerHTML = "You Win";
-            startGame.textContent ="Try Again"
+             title.innerHTML = "You Win";
+             startGame.textContent ="Try Again"
 
         } else if (missed > 4) {
-            overlay.className = "lose";
-            title.textContent = "You Lose"
+             overlay.className = "lose";
+             title.textContent = "You Lose"
              overlay.style.display = "flex";
-            startGame.textContent = "Try Again"
+             startGame.textContent = "Try Again"
              }
          }
     
 
 
 // Restart after the game is over
+
 function resetGame() {
-    const phraseUL = document.querySelector('#phrase ul');
     phraseUL.innerHTML = '';
     const keyButton = document.querySelectorAll('button');
     for (let i = 0; i <keyButton.length; i++) {
