@@ -2,7 +2,7 @@ const keyboard = document.querySelector("#qwerty");
 const misses = document.querySelector(".misses");
 const startGame = document.querySelector(".btn__reset");
 const overlay = document.getElementById("overlay");
- let hearts = document.querySelectorAll('#scoreboard ol');
+let hearts = document.querySelectorAll('#scoreboard img');
 let missed = 0;
 
 //phrases
@@ -70,15 +70,14 @@ startGame. addEventListener('click', () => {
 
 //add event listener to the keyboard
 keyboard.addEventListener('click', event => {
-    if (event.target.tagName === "Button") {
+    if (event.target.tagName === "BUTTON") {
         event.target.className = 'chosen';
         event.target.disabled = true;
         const match = checkLetter(event.target.textContent.toLowerCase());
         if (!match){
-          console.log("Sorry, it's not a match"); 
+          hearts[missed].src = 'images/lostHeart.png';
+          missed++;
         }
-         } else {
-            console.log("Congrats, it's a match!");
          }
          checkWin();
     });
